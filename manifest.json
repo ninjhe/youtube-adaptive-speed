@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Adaptive Speed",
+  "version": "1.0.0",
+  "description": "Automatically change YouTube playback speed based on speaker's talking pace.",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://www.youtube.com/*"
+  ],
+  "background": {
+    "service_worker": "background/background.js"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*"
+      ],
+      "js": [
+        "utils/debug.js",
+        "utils/transcript.js",
+        "utils/speedAnalyzer.js",
+        "utils/speedController.js",
+        "utils/playerUI.js",
+        "content/content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

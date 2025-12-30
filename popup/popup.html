@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Adaptive Speed</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <span class="title">YT Adaptive Speed</span>
+      <button id="toggle-btn" class="toggle-btn disable">Disable</button>
+    </div>
+
+    <div class="stat-row">
+      <span class="label">Base speaking pace:</span>
+      <span id="base-pace" class="value">-- wps</span>
+    </div>
+
+    <div class="stat-row">
+      <span class="label">Adjusted speaking pace:</span>
+      <span id="adjusted-pace" class="value">-- wps</span>
+    </div>
+
+    <hr class="divider">
+
+    <div class="slider-section">
+      <div class="slider-label">
+        <span id="target-speed">1.00x</span>
+        <span id="actual-speed" class="actual"></span>
+      </div>
+      <input type="range" id="speed-slider" min="1" max="2.5" step="0.05" value="1">
+    </div>
+
+    <div class="status-bar">
+      <span class="tip">You can also change the speed by clicking on the player bar button (right of CC)</span>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+
+</html>
